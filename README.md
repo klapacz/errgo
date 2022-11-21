@@ -47,3 +47,7 @@ if (!err) {
   result; // typescript knows result is defined
 }
 ```
+
+## Alternatives
+
+- [ts-results - A typescript implementation of Rust's Result object](https://github.com/vultix/ts-results)

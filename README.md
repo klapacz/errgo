@@ -1,6 +1,6 @@
 # errgo
 
-Better error handling. Inspired by [error handling in golang](https://go.dev/blog/error-handling-and-go).
+Better error handling. Inspired by [error handling in golang](https://go.dev/blog/error-handling-and-go). This text was added but shouldn't be.
 
 ## Installation
 

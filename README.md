@@ -19,42 +19,27 @@ pnpm add @klapacz/errgo
 
 ## Example
 
-### `Result`
-
 ```ts
-import { Result } from "https://deno.land/x/errgo/mod.ts";
+import { Result, must, wrap } from "https://deno.land/x/errgo/mod.ts";
 
-async function readFile(path: string): Result<string> {
-  if (exists(path)) {
-    return [undefined, await readFile(path)];
+async function divide(
+  dividend: number,
+  divisor: number
+): Promise<Result<number>> {
+  if (divisor === 0) {
+    return [new Error("Division by zero is not defined.")];
   }
-  return [new Error("invalid path")];
+  return [, dividend / divisor];
 }
 
-const [err, result] = readFile("test.txt");
-if (!err) {
-  result; // typescript knows result is defined
-}
-```
+const [err, result] = divide(2, 3);
+if (!err) console.log(result); // typescript is smart about result being defined
 
-### `must`
+// returns result or throws
+const john = must(divide(2, 3));
 
-```ts
-import { must } from "https://deno.land/x/errgo/mod.ts";
-
-// throws error if returned by `readFile(…)`
-const result = must(readFile("test.txt"));
-```
-
-### `wrap`
-
-```ts
-import { wrap } from "https://deno.land/x/errgo/mod.ts";
-
+// wraps function which throws with `Result` interface
 const [err, result] = await wrap(fetch("…"));
-if (!err) {
-  result; // typescript knows result is defined
-}
 ```
 
 ## Alternatives

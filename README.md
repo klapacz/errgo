@@ -2,12 +2,6 @@
 
 Better error handling. Inspired by [error handling in golang](https://go.dev/blog/error-handling-and-go).
 
-## Installation
-
-```
-pnpm add @klapacz/errgo
-```
-
 ## Example
 
 ### `Result`

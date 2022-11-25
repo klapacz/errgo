@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["errgo"],
+  "cSpell.words": ["Deno", "errgo", "klapacz"],
   "deno.enable": true,
   "deno.unstable": true
 }

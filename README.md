@@ -32,11 +32,11 @@ async function divide(
   return [, dividend / divisor];
 }
 
-const [err, result] = divide(2, 3);
+const [err, result] = await divide(2, 3);
 if (!err) console.log(result); // typescript is smart about result being defined
 
 // returns result or throws
-const john = must(divide(2, 3));
+const result = must(await divide(2, 3));
 
 // wraps function which throws with `Result` interface
 const [err, result] = await wrap(fetch("…"));
